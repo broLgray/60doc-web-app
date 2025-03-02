@@ -27,8 +27,8 @@ document.getElementById("contentForm").addEventListener("submit", async function
     responseDiv.innerHTML = `Generating your content plan <span class="loading"></span>`;
 
     try {
-        console.log("Sending request:", JSON.stringify({ message: userMessage })); // Debugging log
-    
+        console.log("🔵 Sending request to server:", JSON.stringify({ message: userMessage }));
+
         const response = await fetch("/.netlify/functions/openai", {
             method: "POST",
             headers: {
@@ -36,16 +36,27 @@ document.getElementById("contentForm").addEventListener("submit", async function
             },
             body: JSON.stringify({ message: userMessage })
         });
-    
+
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText}`);
         }
-    
+
         const data = await response.json();
-        console.log("Response from server:", data); // Debugging log
+        console.log("🟢 Response from server:", data);
+
         responseDiv.innerHTML = `<strong>Generated Plan:</strong><br>${data.reply}`;
     } catch (error) {
-        console.error("Error:", error);
-        responseDiv.innerHTML = "Something went wrong!";
+        console.error("🔴 Error:", error);
+
+        let errorMessage = "Something went wrong!";
+        if (error.message.includes("Failed to fetch")) {
+            errorMessage = "Network error: Unable to reach the server. Check your connection.";
+        } else if (error.message.includes("500")) {
+            errorMessage = "Server error: OpenAI function crashed.";
+        } else if (error.message.includes("400")) {
+            errorMessage = "Bad request: Missing or incorrect data.";
+        }
+
+        responseDiv.innerHTML = `<span style="color: red;">${errorMessage}</span>`;
     }
 });
