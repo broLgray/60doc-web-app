@@ -1,9 +1,10 @@
 [build]
   command = "npm run build"
-  publish = "public"
+  publish = "public"  # Make sure this is correct for your build folder
 
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [functions.timeout]
   duration = 30
