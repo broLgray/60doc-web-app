@@ -75,9 +75,12 @@ This ensures variety and balanced content distribution across the 60-day period.
         const data = await openaiResponse.json();
         console.log("API Response:", data);
 
+        // Format response into readable HTML
+        const formattedResponse = formatResponse(data.choices[0].message.content);
+
         return {
             statusCode: 200,
-            body: JSON.stringify({ reply: data.choices[0].message.content }),
+            body: JSON.stringify({ reply: formattedResponse }),
         };
     } catch (error) {
         console.error("Error:", error);
@@ -91,3 +94,14 @@ This ensures variety and balanced content distribution across the 60-day period.
         };
     }
 };
+
+// Function to format AI response for better readability
+function formatResponse(responseText) {
+    let formattedText = responseText
+        .replace(/\*\*(.*?)\*\*/g, "<h3>$1</h3>") // Convert **text** into <h3>
+        .replace(/\d+\.\s/g, "<li>") // Convert numbered list into <li>
+        .replace(/(?<=<\/li>)\s*/g, "</li>") // Close <li> tags properly
+        .replace(/\n/g, "<br>"); // Preserve line breaks
+
+    return `<div style="text-align: left;">${formattedText}</div>`;
+}
