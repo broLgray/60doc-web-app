@@ -1,31 +1,32 @@
 const fetch = require("node-fetch");
-
 require('dotenv').config();
+const fs = require('fs'); // File system for logging
+
 const apiKey = process.env.OPENAI_API_KEY;
 
 exports.handler = async (event) => {
-    // Log the body of the event to make sure it's arriving correctly
-    console.log("Incoming body:", event.body);
+    console.log("Incoming request:", event.body); // Log incoming request data
 
     try {
-        // Ensure event.body is not undefined or empty
+        // Ensure the request has a body
         if (!event.body) {
+            console.error("Error: No data received");
             return {
                 statusCode: 400,
                 body: JSON.stringify({ message: "No data received" }),
             };
         }
 
-        const { message } = JSON.parse(event.body); // Parse the body of the request
+        const { message } = JSON.parse(event.body); // Parse request body
 
         const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+                "Authorization": `Bearer ${apiKey}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                model: "gpt-4-turbo", // OpenAI doesn't allow direct GPT URLs, so use GPT-4-Turbo
+                model: "gpt-3.5-turbo", // Use the cheaper and faster GPT-3.5-Turbo model
                 messages: [
                     {
                         role: "system",
@@ -65,7 +66,14 @@ This ensures variety and balanced content distribution across the 60-day period.
             }),
         });
 
+        if (!openaiResponse.ok) {
+            const errorMessage = `OpenAI API error: ${openaiResponse.status} - ${await openaiResponse.text()}`;
+            console.error(errorMessage);
+            throw new Error(errorMessage);
+        }
+
         const data = await openaiResponse.json();
+        console.log("API Response:", data);
 
         return {
             statusCode: 200,
@@ -73,9 +81,13 @@ This ensures variety and balanced content distribution across the 60-day period.
         };
     } catch (error) {
         console.error("Error:", error);
+
+        // Write error to a log file (optional)
+        fs.appendFileSync("error.log", `${new Date().toISOString()} - ${error.stack}\n`);
+
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Internal Server Error', error: error.message }),
+            body: JSON.stringify({ message: "Internal Server Error", error: error.message }),
         };
     }
 };
