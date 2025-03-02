@@ -60,12 +60,12 @@ document.getElementById("contentForm").addEventListener("submit", async function
         responseDiv.innerHTML = `<span style="color: red;">${errorMessage}</span>`;
     }
     // Function to send height updates to the parent window
-    function sendHeightToParent() {
-        const height = document.body.scrollHeight;
-        window.parent.postMessage({ type: "resize", height: height }, "*");
+    function sendHeight() {
+        const height = document.body.scrollHeight; // Get total page height
+        window.parent.postMessage({ type: "resize", height }, "*");
     }
-
-    // Call the function on load and whenever content changes
-    window.onload = sendHeightToParent;
-    setInterval(sendHeightToParent, 500); // Adjust height every 500ms in case content changes
+    
+    // Send height updates after page loads and when window resizes
+    window.addEventListener("load", sendHeight);
+    window.addEventListener("resize", sendHeight);
 });
