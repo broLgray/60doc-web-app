@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Social Content Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Social Content Planner</h1>
+        <form id="contentForm">
+            <label>1. Business Name & Industry:</label>
+            <textarea id="business" placeholder="What do you do?" required></textarea>
+
+            <label>2. Target Audience:</label>
+            <textarea id="audience" placeholder="Who are your ideal customers?" required></textarea>
+
+            <label>3. Key Transformations (How do you help customers?):</label>
+            <textarea id="transformations" placeholder="What problems do you solve, and how do you improve your customers’ lives?" required></textarea>
+
+            <label for="tone">4. Brand Tone:</label>
+            <textarea id="tone" placeholder="Describe your brand tone (e.g., professional, casual, fun)"></textarea>
+
+            <label>5. Core Values:</label>
+            <textarea id="values" placeholder="What are the guiding principles of your brand?" required></textarea>
+
+            <label>6. Preferred Platforms:</label>
+            <div class="checkbox-group">
+               <label><input type="checkbox" value="Instagram"> Instagram</label>
+                <label><input type="checkbox" value="LinkedIn"> LinkedIn</label>
+                <label><input type="checkbox" value="TikTok"> TikTok</label>
+                <label><input type="checkbox" value="Facebook"> Facebook</label>
+                <label><input type="checkbox" value="Twitter"> Twitter</label>
+            </div>
+
+            <button type="submit">Generate Content Plan</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
