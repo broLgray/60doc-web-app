@@ -1,10 +1,9 @@
 [build]
-  command = "npm run build"
-  publish = "public"  # Make sure this is correct for your build folder
+  command = "echo 'No build step'"
+  publish = "."
 
 [functions]
   directory = "netlify/functions"
-  node_bundler = "esbuild"
 
 [functions.timeout]
   duration = 30
