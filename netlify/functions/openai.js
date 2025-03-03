@@ -52,7 +52,7 @@ The GPT then generates 6 post ideas per category, ensuring they align with platf
 3. **Use simple bullet points (•)** for lists, NOT markdown lists (-, *, etc.).
 4. **Do NOT ask follow-up questions** – Your response is final.
 
-### **Example of Expected Output**:
+### **Example of Expected Output (this is only for reference - DO NOT use this exact format. There should be 6 post ideas for each category)**:
 
 **Pre-Beliefs & Content Categories**
 • Simplifying Daily Operations → Educational Content
