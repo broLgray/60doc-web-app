@@ -157,11 +157,28 @@ button:hover {
         padding: 8px;
     }
 
-    /* Make checkboxes fit better */
-    .checkbox-group {
-        flex-direction: column;
-        gap: 5px;
-    }
+/* Fix checkbox layout on mobile */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Reduce gap to avoid excessive spacing */
+    justify-content: flex-start;
+}
+
+.checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px; /* Reduce text size slightly for better fit */
+    margin: 3px 0; /* Reduce extra spacing */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0; /* Ensure no extra margin is added */
+    vertical-align: middle; /* Align checkbox with text */
+}
 
     /* Ensure buttons are large enough to tap */
     button {
