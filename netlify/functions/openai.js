@@ -8,7 +8,6 @@ exports.handler = async (event) => {
     console.log("Incoming request:", event.body); // Log incoming request data
 
     try {
-        // Ensure the request has a body
         if (!event.body) {
             console.error("Error: No data received");
             return {
@@ -17,7 +16,7 @@ exports.handler = async (event) => {
             };
         }
 
-        const { message } = JSON.parse(event.body); // Parse request body
+        const { message } = JSON.parse(event.body);
 
         const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
@@ -30,36 +29,56 @@ exports.handler = async (event) => {
                 messages: [
                     {
                         role: "system",
-                        content: `This GPT helps businesses create a customized 30-day social media content strategy. Before generating content, it first gathers essential business information using a structured, numbered format so users can easily respond with the question number and their answer:
+                        content: `You are an AI marketing assistant. Generate a structured **30-day social media content plan** based on the user's business details. 
 
-1. Business Name & Industry – What do you do?
-2. Target Audience – Who are your ideal customers?
-3. Key Transformations – What problems do you solve, and how do you improve your customers’ lives?
-4. Brand Tone – Do you prefer a professional, friendly, humorous, or authoritative voice?
-5. Core Values – What are the guiding principles of your brand?
-6. Preferred Platforms – Where do you want to post? (e.g., Instagram, LinkedIn, TikTok, etc.)
+### **Formatting Rules**
+- **Do not** ask any follow-up questions at the end.
+- Use **Markdown-style formatting** for readability.
+- Organize content into two main sections:
+  1. **Pre-Beliefs & Content Categories** (a short list of the business’s core beliefs and their associated content types).
+  2. **Content Ideas** (categorized post ideas using bullet points).
+- Use **section headers (## or ###)** for better readability.
+- Use bullet points (✅) for content ideas.
+- Maintain **line spacing** for easy reading.
 
-Once this information is provided, the GPT structures a strategy around five core pre-beliefs that are unique to the business. These pre-beliefs reflect what the business believes about itself and its mission. Each pre-belief is paired with a content category to ensure content is focused and effective. The response will always begin by listing the user-defined pre-beliefs and their corresponding content categories before generating post ideas.
+### **Example Response Format**  
+---
 
-The GPT then generates 6 post ideas per category, ensuring they align with platform-specific best practices. Once the post ideas are presented, it will ask:
+## **Generated 30-Day Content Plan**  
 
-- "Would you like me to add repurposing strategies or engagement boosters? 🚀"
-- "Would you like me to turn this into a content schedule?"
+### **Pre-Beliefs & Content Categories**  
+📌 **Reliability** → *Educational Content*  
+📌 **Innovation** → *Product Showcase*  
+📌 **Scalability** → *Client Testimonials*  
+📌 **Efficiency** → *Tips & Tricks*  
+📌 **Security** → *Industry News*  
 
-If the user requests a content schedule, the GPT will organize the posts in an alternating daily format, ensuring that categories rotate evenly throughout the 60-day plan. For example:
+---
 
-Day 1: [Post 1 from Category 1]
-Day 2: [Post 1 from Category 2]
-Day 3: [Post 1 from Category 3]
-Day 4: [Post 1 from Category 4]
-Day 5: [Post 1 from Category 5]
-Day 6: [Post 2 from Category 1]
-Day 7: [Post 2 from Category 2]
-Day 8: [Post 2 from Category 3]
-Day 9: [Post 2 from Category 4]
-Day 10: [Post 2 from Category 5]
+### **Content Ideas**  
 
-This ensures variety and balanced content distribution across the 30-day period.`,
+#### **📚 Educational Content (Reliability)**  
+✅ How regular maintenance prevents costly downtime.  
+✅ Quick video guide: Fixing common Wi-Fi issues.  
+
+#### **🚀 Product Showcase (Innovation)**  
+✅ Introducing the latest wireless technology for offices.  
+✅ Before & after: The impact of a network overhaul.  
+
+#### **📢 Client Testimonials (Scalability)**  
+✅ Video: A client shares how your IT solutions helped them scale.  
+✅ Case study: Customizing IT infrastructure for business growth.  
+
+#### **⚡ Tips & Tricks (Efficiency)**  
+✅ Quick tip: Boosting network speed for better office performance.  
+✅ Remote teams: A productivity hack for IT efficiency.  
+
+#### **🔒 Industry News (Security)**  
+✅ Cybersecurity threats: What businesses should know right now.  
+✅ Video: Why VPNs are essential for remote work security.  
+
+---
+Ensure the response follows this format exactly. Now, generate a response using the user's business details.`
                     },
                     { role: "user", content: message }
                 ],
@@ -84,10 +103,7 @@ This ensures variety and balanced content distribution across the 30-day period.
         };
     } catch (error) {
         console.error("Error:", error);
-
-        // Write error to a log file (optional)
         fs.appendFileSync("error.log", `${new Date().toISOString()} - ${error.stack}\n`);
-
         return {
             statusCode: 500,
             body: JSON.stringify({ message: "Internal Server Error", error: error.message }),
@@ -99,8 +115,7 @@ This ensures variety and balanced content distribution across the 30-day period.
 function formatResponse(responseText) {
     let formattedText = responseText
         .replace(/\*\*(.*?)\*\*/g, "<h3>$1</h3>") // Convert **text** into <h3>
-        .replace(/\d+\.\s/g, "<li>") // Convert numbered list into <li>
-        .replace(/(?<=<\/li>)\s*/g, "</li>") // Close <li> tags properly
+        .replace(/\n- /g, "<li>") // Convert bullet points into list items
         .replace(/\n/g, "<br>"); // Preserve line breaks
 
     return `<div style="text-align: left;">${formattedText}</div>`;
