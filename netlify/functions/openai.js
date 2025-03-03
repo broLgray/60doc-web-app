@@ -52,36 +52,56 @@ The GPT then generates 6 post ideas per category, ensuring they align with platf
 3. **Use simple bullet points (•)** for lists, NOT markdown lists (-, *, etc.).
 4. **Do NOT ask follow-up questions** – Your response is final.
 
-### **Example of Expected Output (this is only for reference - DO NOT use this exact format. There should be 6 post ideas for each category)**:
+### **Example of Expected Output**:
 
 **Pre-Beliefs & Content Categories**
-• Simplifying Daily Operations → Educational Content
-• Boosting Engagement → Product Showcase
-• Driving Growth → Client Testimonials
-• Approachability → Tips & Tricks
-• Informing on Automation → Industry News
+• Pre-Belief 1 → Category 1
+• Pre-Belief 2 → Category 2
+• Pre-Belief 3 → Category 3
+• Pre-Belief 4 → Category 4
+• Pre-Belief 5 → Category 5
 
 **Content Ideas**
 
-**Educational Content (Simplifying Daily Operations)**
-• How automating follow-ups saves time and boosts customer satisfaction.
-• Guide: Setting up automated invoicing for smoother transactions.
+**Category 1**
+• Post idea 1
+• Post idea 2
+• Post idea 3
+• Post idea 4
+• Post idea 5
+• Post idea 6
 
-**Product Showcase (Boosting Engagement)**
-• Showcase: The power of automated social media posting for small businesses.
-• New Feature Alert: Introducing HighLevel's latest website integration tool.
+**Category 2**
+• Post idea 1
+• Post idea 2
+• Post idea 3
+• Post idea 4
+• Post idea 5
+• Post idea 6
 
-**Client Testimonials (Driving Growth)**
-• Success Story: How automation helped a business double its leads in a month.
-• Testimonial Video: A happy client shares their growth journey with Zion Hollow Creative.
+**Category 3**
+• Post idea 1
+• Post idea 2
+• Post idea 3
+• Post idea 4
+• Post idea 5
+• Post idea 6
 
-**Tips & Tricks (Approachability)**
-• Quick hack: Streamlining email campaign creation with HighLevel templates.
-• Efficiency Tip: Automate appointment scheduling for a stress-free calendar.
+**Category 4**
+• Post idea 1
+• Post idea 2
+• Post idea 3
+• Post idea 4
+• Post idea 5
+• Post idea 6
 
-**Industry News (Informing on Automation)**
-• The future of marketing automation: Trends every small business owner should know.
-• Video Update: How automation is reshaping the landscape of customer engagement.
+**Category 5**
+• Post idea 1
+• Post idea 2
+• Post idea 3
+• Post idea 4
+• Post idea 5
+• Post idea 6
 
 ---
 Generate your response using this exact format. No emojis, no markdown, and no additional questions at the end.`,
