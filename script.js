@@ -45,6 +45,9 @@ document.getElementById("contentForm").addEventListener("submit", async function
         console.log("🟢 Response from server:", data);
 
         responseDiv.innerHTML = `<strong>Generated Plan:</strong><br>${data.reply}`;
+
+        // Call sendHeight after response to adjust iframe height
+        sendHeight();
     } catch (error) {
         console.error("🔴 Error:", error);
 
@@ -58,14 +61,18 @@ document.getElementById("contentForm").addEventListener("submit", async function
         }
 
         responseDiv.innerHTML = `<span style="color: red;">${errorMessage}</span>`;
+
+        // Adjust iframe even if an error occurs
+        sendHeight();
     }
-    // Function to send height updates to the parent window
-    function sendHeight() {
-        const height = document.body.scrollHeight; // Get total page height
-        window.parent.postMessage({ type: "resize", height }, "*");
-    }
-    
-    // Send height updates after page loads and when window resizes
-    window.addEventListener("load", sendHeight);
-    window.addEventListener("resize", sendHeight);
 });
+
+// ✅ Move this function OUTSIDE the submit event so it runs on load & resize
+function sendHeight() {
+    const height = document.body.scrollHeight; // Get total page height
+    window.parent.postMessage({ type: "resize", height }, "*");
+}
+
+// Send height updates after page loads and when window resizes
+window.addEventListener("load", sendHeight);
+window.addEventListener("resize", sendHeight);
