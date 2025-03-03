@@ -183,3 +183,16 @@ html, body {
     min-height: 100vh; /* Ensures full height */
     overflow-y: auto;
 }
+
+iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 20px 0; /* Adds space above and below */
+    overflow: hidden;
+    scrollbar-width: none; /* Firefox */
+}
+
+iframe::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
