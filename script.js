@@ -69,10 +69,12 @@ document.getElementById("contentForm").addEventListener("submit", async function
 
 // ✅ Move this function OUTSIDE the submit event so it runs on load & resize
 function sendHeight() {
-    const height = document.body.scrollHeight; // Get total page height
-    window.parent.postMessage({ type: "resize", height }, "*");
+    setTimeout(() => {
+        const height = document.documentElement.scrollHeight; // Use entire page height
+        window.parent.postMessage({ type: "resize", height: height + 20 }, "*"); // Add padding
+    }, 100); // Small delay to allow content to fully render
 }
 
-// Send height updates after page loads and when window resizes
+// Run on page load & window resize
 window.addEventListener("load", sendHeight);
 window.addEventListener("resize", sendHeight);

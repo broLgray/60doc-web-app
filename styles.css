@@ -171,10 +171,26 @@ button:hover {
     }
 }
 
-/* Fix iFrame height auto-adjustment */
+/* Ensure full page scrolling */
 html, body {
-    overflow-x: hidden;
-    min-height: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+/* Ensure iframe doesn’t force scrolling */
+iframe {
+    width: 100%;
+    border: none;
+    overflow: hidden; /* Hide internal iframe scrollbar */
+    display: block;
+}
+
+/* Make sure the response div can expand fully */
+#response {
+    overflow: visible;
+    max-width: 100%;
+    white-space: normal;
 }
 
 .container {
