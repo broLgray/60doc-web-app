@@ -223,18 +223,20 @@ html, body {
     }
 
     .checkbox-group {
+        max-width: 600px; /* Keep it from stretching too wide */
+        margin: 0 auto; /* Center it */
         display: flex;
         flex-wrap: wrap;
-        gap: 5px;
         justify-content: flex-start;
+        gap: 5px 15px; /* Adjust row and column spacing */
     }
 
     .checkbox-group label {
-        display: inline-flex;
+        display: flex;
         align-items: center;
+        font-size: 14px; /* Slightly smaller text */
         gap: 5px;
-        font-size: 14px;
-        margin: 3px 0;
+        margin: 2px 0; /* Reduce vertical spacing */
     }
 
     .checkbox-group input[type="checkbox"] {
