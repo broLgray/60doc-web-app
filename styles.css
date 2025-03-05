@@ -190,9 +190,14 @@ button:hover {
 
 /* Ensure full page scrolling */
 html, body {
-    height: auto;
-    min-height: 100vh;
-    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make sure the content takes up space, pushing the footer down */
+.container {
+    flex: 1;
 }
 
 /* Ensure iframe doesn’t force scrolling */
@@ -217,20 +222,19 @@ iframe {
 
 /* Footer Styles */
 .app-footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #42454A;
+    color: white;
     text-align: center;
     padding: 15px 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    margin-top: auto;
 }
 
 .app-footer a {
-    color: #f36146;
+    color: #FF9E4F;
     text-decoration: none;
     font-weight: 600;
     margin: 5px 0;
@@ -243,8 +247,9 @@ iframe {
 /* Desktop View */
 @media (min-width: 768px) {
     .app-footer {
-        flex-direction: row;
+        display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 20px 40px;
         font-size: 16px;
     }
