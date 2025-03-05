@@ -77,7 +77,8 @@ body {
 /* Main Container */
 .container {
     background: white;
-    padding: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     min-width: 700px;
     max-width: 90vw;
     text-align: center;
