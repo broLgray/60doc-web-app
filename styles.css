@@ -77,8 +77,7 @@ body {
 /* Main Container */
 .container {
     background: white;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding: 60px 40px;
     min-width: 700px;
     max-width: 90vw;
     text-align: center;
@@ -126,21 +125,25 @@ input {
 
 /* Checkbox Layout */
 .checkbox-group {
+    max-width: 700px; /* Keep checkboxes from stretching too wide */
+    margin: 0 auto; /* Center it */
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: flex-start;
-    margin-top: 10px;
+    gap: 3px 15px; /* Reduce space between rows */
 }
 
+/* Adjust checkbox alignment */
 .checkbox-group label {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    font-size: 14px; /* Slightly smaller text */
     gap: 5px;
-    font-weight: normal;
-    cursor: pointer;
+    margin: 0; /* Remove excess margin */
+    white-space: nowrap; /* Prevent breaking into multiple lines */
 }
 
+/* Checkbox Inputs */
 .checkbox-group input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -203,7 +206,7 @@ html, body {
     flex-direction: column;
 }
 
-/* Fix checkbox layout on mobile */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     body {
         font-size: 16px;
@@ -213,7 +216,7 @@ html, body {
 
     .container {
         min-width: 100%;
-        padding: 15px;
+        padding: 20px;
         box-shadow: none;
     }
 
@@ -222,39 +225,7 @@ html, body {
         padding: 8px;
     }
 
-    /* Limit width and fix spacing */
-.checkbox-group {
-    max-width: 700px; /* Keep checkboxes from stretching too wide */
-    margin: 0 auto; /* Center it */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 3px 15px; /* Reduce space between rows */
-}
-
-/* Adjust checkbox alignment */
-.checkbox-group label {
-    display: inline-flex;
-    align-items: center;
-    font-size: 14px; /* Slightly smaller text */
-    gap: 5px;
-    margin: 0; /* Remove excess margin */
-    white-space: nowrap; /* Prevent breaking into multiple lines */
-}
-
-    .checkbox-group input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
-        margin: 0;
-        vertical-align: middle;
-    }
-
-    button {
-        width: 100%;
-        padding: 12px;
-        font-size: 18px;
-    }
-
+    /* Adjust navbar spacing */
     .navbar {
         padding: 10px 20px;
     }
