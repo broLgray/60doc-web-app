@@ -38,22 +38,83 @@ exports.handler = async (event) => {
 	5.	Core Values – What are the guiding principles of your brand?
 	6.	Preferred Platforms – Where do you want to post? (e.g., Instagram, LinkedIn, TikTok, etc.)
 
-Once this information is provided, the GPT structures a strategy around five core Pre-Beliefs unique to the business. Each pre-belief is paired with a Content Category to ensure all content is focused and effective.
+Once this information is provided, the GPT structures a strategy around five core Pre-Beliefs unique to the business.
 
-Pre-Beliefs are the core ideas your ideal audience needs to accept before they are ready to engage with your brand, subscribe, or buy. These are the “mental dominoes” that need to fall, making the decision a no-brainer for them. Each Pre-Belief connects to a specific Content Category, ensuring your content builds alignment and trust.
+⸻
 
-Instead of generic beliefs, focus on ones that truly differentiate the company's brand and reflect what matters most to your audience. Here are examples of strong Pre-Beliefs:
+Clarification of Pre-Beliefs & Categories
 
-• We share the same values – People do business with brands they trust and align with. Content here might highlight culture, mission, or what your brand stands for.
-• We know what we’re doing – Before someone buys, they need to believe you’re an expert. Content in this category could be hot takes, industry insights, or thought leadership.
-• We make things easy – If people feel something is overwhelming, they won’t move forward. This category could feature testimonials, case studies, or clear “how-to” content.
-• We solve a real problem – If people don’t believe they have a problem (or that you solve it better), they won’t engage. Content here might highlight pain points and transformations.
-• We are different from competitors – Why should they pick you over alternatives? This could include your unique methods, personality, or what makes your brand stand out.
+Pre-Beliefs are the key ideas a potential customer must accept before they are ready to engage with your brand. Each Pre-Belief is linked to a specific Post Type (Category) that determines the style of content used to reinforce that belief.
 
-Important notes about pre-beliefs:
-    1.	Ensure each Pre-Belief is clearly stated and connected to a unique Content Category. Avoid generic responses like “we provide value” or “we help businesses grow.” Instead, make them specific to the business.
-	2.	Generate content ideas that align with each belief. Example: If the belief is “We make things easy,” posts should include testimonials, step-by-step guides, or simple explanations.
-	3.	Format the response exactly as shown in the example. No markdown symbols, just plain text with line breaks for readability.
+Instead of generic beliefs, ensure they differentiate the brand and align with how customers make decisions.
+
+Here’s how the response should be structured:
+
+⸻
+
+Response Formatting Instructions:
+	1.	Pre-Beliefs & Content Categories:
+	•	List five strong pre-beliefs unique to the business.
+	•	Pair each pre-belief with a content category (post type) that will best communicate that belief.
+	•	Example format:
+• Pre-Belief → Post Type
+	2.	Content Ideas:
+	•	Organized by post type (category), not by pre-belief.
+	•	Each category gets six specific post ideas.
+	•	Each post idea must align with the purpose of its category.
+
+⸻
+
+Example of Expected Output:
+
+Pre-Beliefs & Content Categories
+• We know the industry → Hot take
+• We are connected → Highlight
+• We make it easy → Testimonial
+• We solve problems → How-to
+• We are aligned → Character-driven story
+
+Content Ideas
+
+Hot Take
+• Share an unpopular opinion about trends in the industry
+• Debunk a common automation myth with a strong stance
+• Explain a major shift happening in the space and how businesses should respond
+• Call out ineffective strategies still being used today
+• Predict the future of automation for small businesses
+• Share a strong industry opinion that differentiates your brand
+
+Highlight
+• Showcase a small business using automation successfully
+• Feature an industry leader’s take on automation trends
+• Share behind-the-scenes insights from your team’s process
+• Highlight a new product or feature and why it matters
+• Talk about a community event or partnership related to your industry
+• Post a “day in the life” look at how businesses benefit from automation
+
+Testimonial
+• Share client testimonials on how automation saved time and increased revenue
+• Highlight a before-and-after case study with real data
+• Post a client success quote alongside their results
+• Feature a video testimonial from a happy customer
+• Share a compilation of multiple success stories in one post
+• Offer a customer spotlight with their journey and transformation
+
+How-To
+• Step-by-step guide on automating a key business process
+• Infographic on the time savings of automation
+• Case study showing results of process automation
+• Video walkthrough of an automation tool in action
+• Quick tips for streamlining small business operations
+• FAQ post addressing common automation misconceptions
+
+Character-Driven Story
+• Share a personal experience that shaped your approach to business
+• Feature a team member’s story and their passion for automation
+• Talk about a challenge you overcame in growing the business
+• Highlight values your company stands for and why they matter
+• Share a humorous or relatable story about a common client pain point
+• Tell the story of how your brand started and what drives it today
 
 The response must follow this exact format and structure:
 
