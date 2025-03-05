@@ -8,6 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="https://zionhollow.com">
+                <img src="https://assets.cdn.filesafe.space/Ip3Z00pzLcVXxkuRB6sN/media/5b7bb85a-7b97-4d8f-b0c4-601095f99001.svg+xml" 
+                     alt="Zion Hollow Creative Logo" 
+                     class="logo">
+            </a>
+            <a href="https://zionhollow.com/contact" class="button-primary">CONTACT</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>AI Social Content Planner</h1>
         <form id="contentForm">
@@ -29,24 +43,29 @@
             <label>6. Preferred Platforms:</label>
             <div class="checkbox-group">
                <label><input type="checkbox" value="Instagram"> Instagram</label>
-                <label><input type="checkbox" value="LinkedIn"> LinkedIn</label>
-                <label><input type="checkbox" value="TikTok"> TikTok</label>
-                <label><input type="checkbox" value="Facebook"> Facebook</label>
-                <label><input type="checkbox" value="Twitter"> Twitter</label>
+               <label><input type="checkbox" value="LinkedIn"> LinkedIn</label>
+               <label><input type="checkbox" value="TikTok"> TikTok</label>
+               <label><input type="checkbox" value="Facebook"> Facebook</label>
+               <label><input type="checkbox" value="Twitter"> Twitter</label>
             </div>
 
             <button type="submit">Generate Content Plan</button>
         </form>
         <div id="response"></div>
     </div>
+
     <script src="script.js"></script>
+
+    <!-- Footer -->
     <footer class="app-footer">
         <p>© Copyright <span id="currentYear"></span>. Zion Hollow Creative. All rights reserved.</p>
-        <a href="https://zionhollow.com/terms-privacy">Terms of Service & Privacy</a>
+        <a href="https://zionhollow.com/terms-privacy" target="_blank">Terms of Service & Privacy</a>
         <p>We're on a mission to help build efficient small businesses & organizations.</p>
     </footer>
+
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
+
 </body>
 </html>
