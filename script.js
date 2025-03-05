@@ -7,10 +7,10 @@ document.getElementById("contentForm").addEventListener("submit", async function
     const tone = document.getElementById("tone").value;
     const values = document.getElementById("values").value;
 
-    // Collect selected platforms
-    const selectedPlatforms = [];
-    document.querySelectorAll(".checkbox-group input:checked").forEach(checkbox => {
-        selectedPlatforms.push(checkbox.value);
+    // Collect selected content categories (max 5)
+    const selectedCategories = [];
+    document.querySelectorAll("#categoryCheckboxes input:checked").forEach(checkbox => {
+        selectedCategories.push(checkbox.value);
     });
 
     // Format user input into a structured message
@@ -20,7 +20,7 @@ document.getElementById("contentForm").addEventListener("submit", async function
         Key Transformations: ${transformations}
         Brand Tone: ${tone}
         Core Values: ${values}
-        Preferred Platforms: ${selectedPlatforms.join(", ")}
+        Selected Content Categories: ${selectedCategories.length > 0 ? selectedCategories.join(", ") : "None selected"}
     `;
 
     const responseDiv = document.getElementById("response");

@@ -34,14 +34,30 @@
             <label>5. Core Values:</label>
             <textarea id="values" placeholder="What are the guiding principles of your brand?" required></textarea>
 
-            <label>6. Preferred Platforms:</label>
-            <div class="checkbox-group">
-               <label><input type="checkbox" value="Instagram"> Instagram</label>
-                <label><input type="checkbox" value="LinkedIn"> LinkedIn</label>
-                <label><input type="checkbox" value="TikTok"> TikTok</label>
-                <label><input type="checkbox" value="Facebook"> Facebook</label>
-                <label><input type="checkbox" value="Twitter"> Twitter</label>
+            <label>6. Content Categories (Select up to 5):</label>
+            <div class="checkbox-group" id="categoryCheckboxes">
+                <label><input type="checkbox" value="Hot Take"> Hot Take</label>
+                <label><input type="checkbox" value="Testimonial"> Testimonial</label>
+                <label><input type="checkbox" value="How-To"> How-To</label>
+                <label><input type="checkbox" value="Case Study"> Case Study</label>
+                <label><input type="checkbox" value="Behind-the-Scenes"> Behind-the-Scenes</label>
+                <label><input type="checkbox" value="FAQ"> FAQ</label>
+                <label><input type="checkbox" value="Comparison"> Comparison</label>
+                <label><input type="checkbox" value="Engagement Post"> Engagement Post</label>
+                <label><input type="checkbox" value="User-Generated Content"> User-Generated Content</label>
+                <label><input type="checkbox" value="Industry News & Trends"> Industry News & Trends</label>
+                <label><input type="checkbox" value="Tips & Tricks"> Tips & Tricks</label>
+                <label><input type="checkbox" value="Product Demo"> Product Demo</label>
+                <label><input type="checkbox" value="Webinar or Workshop Invite"> Webinar or Workshop Invite</label>
+                <label><input type="checkbox" value="Objection Handling"> Objection Handling</label>
+                <label><input type="checkbox" value="Personal Story"> Personal Story</label>
+                <label><input type="checkbox" value="Pain Point Breakdown"> Pain Point Breakdown</label>
+                <label><input type="checkbox" value="Daily Workflow"> Daily Workflow</label>
+                <label><input type="checkbox" value="Meme or Humor Post"> Meme or Humor Post</label>
+                <label><input type="checkbox" value="What Would You Do? Scenario"> “What Would You Do?” Scenario</label>
+                <label><input type="checkbox" value="A Day in the Life"> A Day in the Life</label>
             </div>
+<p id="categoryWarning" style="color: red; font-size: 14px; display: none;">You can only select up to 5 categories.</p>
 
             <button type="submit">Generate Content Plan</button>
         </form>
@@ -55,6 +71,24 @@
     </footer>
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkboxes = document.querySelectorAll("#categoryCheckboxes input[type='checkbox']");
+            const warningMessage = document.getElementById("categoryWarning");
+        
+            checkboxes.forEach((checkbox) => {
+                checkbox.addEventListener("change", function () {
+                    let checkedCount = document.querySelectorAll("#categoryCheckboxes input[type='checkbox']:checked").length;
+                    if (checkedCount > 5) {
+                        this.checked = false; // Prevent selecting more than 5
+                        warningMessage.style.display = "block";
+                    } else {
+                        warningMessage.style.display = "none";
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
