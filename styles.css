@@ -124,26 +124,24 @@ input {
 }
 
 .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates evenly spaced columns */
+    gap: 5px 10px; /* Smaller row and column gaps */
+    align-items: center;
+    justify-content: start;
     max-width: 700px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 5px 20px;
-    align-items: center;
 }
 
-/* Ensure checkboxes don't expand */
 .checkbox-group label {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     font-size: 14px;
-    gap: 5px;
-    margin: 0;
     white-space: nowrap;
     line-height: 1;
-    height: auto; /* Ensure height is dynamic */
-    flex: 0 1 auto; /* Prevents labels from taking too much space */
+    gap: 5px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Checkbox Inputs */
