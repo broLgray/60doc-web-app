@@ -222,22 +222,25 @@ html, body {
         padding: 8px;
     }
 
-    .checkbox-group {
-        max-width: 600px; /* Keep it from stretching too wide */
-        margin: 0 auto; /* Center it */
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 5px 15px; /* Adjust row and column spacing */
-    }
+    /* Limit width and fix spacing */
+.checkbox-group {
+    max-width: 700px; /* Keep checkboxes from stretching too wide */
+    margin: 0 auto; /* Center it */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 3px 15px; /* Reduce space between rows */
+}
 
-    .checkbox-group label {
-        display: flex;
-        align-items: center;
-        font-size: 14px; /* Slightly smaller text */
-        gap: 5px;
-        margin: 2px 0; /* Reduce vertical spacing */
-    }
+/* Adjust checkbox alignment */
+.checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px; /* Slightly smaller text */
+    gap: 5px;
+    margin: 0; /* Remove excess margin */
+    white-space: nowrap; /* Prevent breaking into multiple lines */
+}
 
     .checkbox-group input[type="checkbox"] {
         width: 16px;
