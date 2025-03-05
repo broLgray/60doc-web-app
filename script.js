@@ -78,5 +78,3 @@ function sendHeight() {
 // Run on page load & window resize
 window.addEventListener("load", sendHeight);
 window.addEventListener("resize", sendHeight);
-
-document.getElementById("currentYear").textContent = new Date().getFullYear();
