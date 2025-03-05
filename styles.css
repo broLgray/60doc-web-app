@@ -142,6 +142,7 @@ input {
     margin: 0;
     white-space: nowrap;
     line-height: 1;
+    height: auto; /* Ensure height is dynamic */
     flex: 0 1 auto; /* Prevents labels from taking too much space */
 }
 
