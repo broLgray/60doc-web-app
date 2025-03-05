@@ -28,27 +28,23 @@ textarea::placeholder {
 
 /* Navigation Bar */
 .navbar {
-    background-color: #6B8D94; /* Match background color */
+    background-color: #6B8D94; /* Match brand color */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     width: 100%;
-    height: 70px; /* Added height */
+    height: 60px; /* Ensure the navbar has a visible height */
 }
 
-/* Logo */
-.navbar-logo {
-    display: flex;
-    align-items: center;
-}
+/* Ensure logo is properly visible */
 .navbar-logo img {
     height: auto;
     max-width: 145px;
     display: block;
 }
 
-/* Contact Button */
+/* Ensure contact button is visible */
 .button-primary {
     outline: 0px solid transparent;
     border-radius: 100px !important;
@@ -56,14 +52,14 @@ textarea::placeholder {
     z-index: 1;
     overflow: hidden;
     transition: color 300ms ease, transform 200ms ease, outline 300ms ease;
-    padding: 10px 20px; /* Ensure proper padding */
+    padding: 10px 20px;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
     color: white;
     display: inline-block;
-    background: linear-gradient(to right, #f36146, #ff9f4f); /* Added background */
+    background: linear-gradient(to right, #f36146, #ff9f4f);
 }
 
 /* Gradient Background */
@@ -105,7 +101,7 @@ textarea::placeholder {
 @media (max-width: 768px) {
     .navbar {
         padding: 10px 20px;
-        height: auto;
+        height: auto; /* Make sure it's visible on mobile */
     }
 
     .navbar-logo img {
