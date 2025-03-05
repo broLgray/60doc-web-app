@@ -152,6 +152,21 @@ input {
     accent-color: #f36146;
 }
 
+@media screen and (max-width: 768px) {
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns on mobile */
+        gap: 10px;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .checkbox-group label {
+        white-space: nowrap;
+        font-size: 14px;
+    }
+}
+
 /* Submit Button */
 button {
     background-color: #f36146;
