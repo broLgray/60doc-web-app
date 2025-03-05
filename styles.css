@@ -154,16 +154,18 @@ input {
 
 @media screen and (max-width: 768px) {
     .checkbox-group {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns on mobile */
-        gap: 10px;
-        justify-content: center;
+        display: flex;
+        flex-direction: column; /* Stack items in a single column */
+        gap: 8px; /* Reduce space between checkboxes */
+        align-items: flex-start; /* Align checkboxes to the left */
         max-width: 100%;
     }
 
     .checkbox-group label {
         white-space: nowrap;
         font-size: 14px;
+        display: flex;
+        align-items: center;
     }
 }
 
