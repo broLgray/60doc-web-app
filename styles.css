@@ -130,7 +130,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 3px 15px; /* Reduce space between rows */
+    gap: 3px 5px; /* Reduce space between rows */
 }
 
 /* Adjust checkbox alignment */
